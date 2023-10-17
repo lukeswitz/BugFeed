@@ -70,7 +70,6 @@
     async function fetchData(apiUrl, tableId, rowCountId, isJson = true, defaultRowCount = 25) {
       const response = await fetch(apiUrl);
       let data = isJson ? await response.json() : await response.text().then(text => text.split('\n'));
-      data = data.reverse();
       
       const element = document.getElementById(rowCountId);
       if (element !== null) {
